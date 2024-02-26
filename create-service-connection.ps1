@@ -20,7 +20,7 @@ param(
 $env:AZDO_ORG_SERVICE_URL = "https://dev.azure.com/$azureDevOpsOrg"
 $env:AZDO_PERSONAL_ACCESS_TOKEN = $azureDevOpsPAT
 
-az login -tenant $tenantId
+az login --tenant "$tenantId"
 
 terraform init
 
