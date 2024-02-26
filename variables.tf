@@ -22,3 +22,9 @@ variable "management_group_id" {
   type = string
   description = "Azure Management Group ID"
 }
+
+variable "secret_expiration_in_hours" {
+  type = number
+  description = "Azure Service Principal Secret Expiration in Hours"
+  default = 26280
+}

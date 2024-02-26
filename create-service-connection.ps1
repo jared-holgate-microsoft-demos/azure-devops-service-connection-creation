@@ -14,7 +14,9 @@ param(
     [Parameter(Mandatory=$true, HelpMessage="Azure Tenant ID")]
     [string]$tenantId,
     [Parameter(Mandatory=$true, HelpMessage="Azure Management Group ID")]
-    [string]$managementGroupId
+    [string]$managementGroupId,
+    [Parameter(Mandatory=$false, HelpMessage="Azure DevOps Personal Access Token")]
+    [int]$servicePrincipalSecretExpiryInHours = 26280
 )
 
 $env:AZDO_ORG_SERVICE_URL = "https://dev.azure.com/$azureDevOpsOrg"
