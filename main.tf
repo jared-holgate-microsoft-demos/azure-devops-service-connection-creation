@@ -1,5 +1,7 @@
 resource "azuread_application_password" "this" {
   application_id = data.azuread_application.this.id
+  display_name = "origin"
+  end_date = "2030-01-01T00:00:00Z"
 }
 
 resource "azuredevops_serviceendpoint_azurerm" "this" {
