@@ -17,3 +17,16 @@ resource "azuredevops_serviceendpoint_azurerm" "this" {
   azurerm_management_group_id   = data.azurerm_management_group.this.name
   azurerm_management_group_name = data.azurerm_management_group.this.display_name
 }
+
+resource "azuredevops_check_approval" "this" {
+  project_id           = data.azuredevops_project.this.id
+  target_resource_id   = azuredevops_serviceendpoint_azurerm.this.id
+  target_resource_type = "endpoint"
+
+  requester_can_approve = false
+  approvers = [
+    data.azuredevops_group.this.origin_id
+  ]
+
+  timeout = 43200
+}

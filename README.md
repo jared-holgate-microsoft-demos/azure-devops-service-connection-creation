@@ -13,5 +13,6 @@ This is a simple example of how to create an Azure DevOps Service Connection usi
   -azureDevOpsServiceConnectionDescription "my-service-connection-description" `
   -servicePrincipalName "my-service-principal" `
   -tenantId "825a3a13-cf8a-4d81-8946-d7b1aadfd24f" `
-  -managementGroupId "my-management-group"
+  -managementGroupId "my-management-group" `
+  -approvalGroupName "my-group"
 ```

@@ -28,3 +28,8 @@ variable "secret_expiration_in_hours" {
   description = "Azure Service Principal Secret Expiration in Hours"
   default     = 26280
 }
+
+variable "approval_group_name" {
+  type        = string
+  description = "Azure DevOps Approval Group Name"
+}

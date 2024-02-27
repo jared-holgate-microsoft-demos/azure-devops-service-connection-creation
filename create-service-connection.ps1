@@ -16,7 +16,9 @@ param(
     [Parameter(Mandatory=$true, HelpMessage="Azure Management Group ID")]
     [string]$managementGroupId,
     [Parameter(Mandatory=$false, HelpMessage="Azure DevOps Personal Access Token")]
-    [int]$servicePrincipalSecretExpiryInHours = 26280
+    [int]$servicePrincipalSecretExpiryInHours = 26280,
+    [Parameter(Mandatory=$false, HelpMessage="Azure DevOps Approval Group Name")]
+    [string]$approvalGroupName
 )
 
 $env:AZDO_ORG_SERVICE_URL = "https://dev.azure.com/$azureDevOpsOrg"
@@ -31,4 +33,6 @@ terraform apply `
     -var "service_connection_name=$azureDevOpsServiceConnectionName" `
     -var "service_connection_description=$azureDevOpsServiceConnectionDescription" `
     -var "service_principal_name=$servicePrincipalName" `
-    -var "management_group_id=$managementGroupId"
+    -var "management_group_id=$managementGroupId" `
+    -var "secret_expiration_in_hours=$servicePrincipalSecretExpiryInHours" `
+    -var "approval_group_name=$approvalGroupName"
